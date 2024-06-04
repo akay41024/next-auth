@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json();
     const { token } = reqBody;
-    console.log(token);
+    // console.log(token);
 
     const user = await User.findOne({
       verifyToken: token,
@@ -29,7 +29,6 @@ export async function POST(request: NextRequest) {
     await user.save()
     
 
-    // console.log(user);
     return NextResponse.json({message: "Email varified successfully", success: true}, { status: 500 });
     
   } catch (error: any) {
