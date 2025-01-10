@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 // import { useRouter } from "next/router";
 import Link from "next/link";
-import Button from '../../components/themeBtn'
 
 
 export default function VerifyEmailPage() {
@@ -43,11 +42,14 @@ export default function VerifyEmailPage() {
   }, [token]);
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <Button/>
       <h1 className="text-4xl">Verify Email</h1>
       <h1 className="p-2 bg-red-700 text-black mt-4">
         {token ? `${token}` : "No token found"}
       </h1>
+      <h1 className="p-2 bg-green-700 text-black">
+            Email Verified Successfully
+          </h1>
+          <Link href="/login">Login</Link>
       {verify && (
         <>
           <h1 className="p-2 bg-green-700 text-black">
@@ -58,9 +60,9 @@ export default function VerifyEmailPage() {
       )}
       {error && (
         <>
-          <h1 className="p-2 bg-green-700 text-black">
+          {/* <h1 className="p-2 bg-green-700 text-black">
             Error
-          </h1>
+          </h1> */}
         </>
       )}
     </div>
